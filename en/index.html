@@ -1007,45 +1007,16 @@
         }
       </style></noscript
     >
-    <script type="application/ld+json">
-      {
-        "@context": "http://schema.org",
-        "@type": "LocalBusiness",
-        "name": "vueloIV Diseño Web Barcelona",
-        "description": "Diseño web en Barcelona",
-        "telephone": "935 19 37 65",
-        "openingHours": "Mo,Tu,We,Th,Fr 09:30-19:00",
-        "logo": "https://www.vueloiv.com/wp-content/uploads/logo-vueloiv.jpg",
-        "url": "https://www.vueloiv.com",
-        "sameAs": [
-          "https://twitter.com/vueloIV",
-          "https://plus.google.com/+Vueloiv/",
-          "https://www.linkedin.com/company/vueloiv"
-        ],
-        "hasMap": "https://www.google.com/maps/place/vueloIV/@41.391668,2.1770715,15z/data=!4m5!3m4!1s0x0:0x70aa6fec0a639a11!8m2!3d41.377017!4d2.1646299?hl=es",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Barcelona",
-          "addressRegion": "Barcelona",
-          "postalCode": "08010",
-          "streetAddress": "C/ de Bailèn 11"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": "41.391668",
-          "longitude": ".1770715"
-        }
-      }
-    </script>
   </head>
 
   <body
     class="home page-template page-template-page-templates page-template-home page-template-page-templateshome-php page page-id-7950 en desktop"
   >
-    <div class="off-canvas-wrapper" style="background: #0F2027;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    ">
+  <video autoplay loop id="bgvid">
+    <source src=".mov" type="video/mov">
+    <source src="assets/bg.mp4" type="video/mp4">
+    </video>
+    <div class="off-canvas-wrapper" style="">
       <div class="off-canvas-content" data-off-canvas-content>
         <header
           class="header show-on-scroll-up contrast-on-scroll fixed expanded transparent"
@@ -1409,8 +1380,6 @@
                     <model-viewer class="model" src="https://dl.dropbox.com/s/d8l8yj3es9q3hgg/Covid-19.glb" camera-controls ar ar-modes="scene-viewer webxr quick-look"
                     ios-src="https://dl.dropbox.com/s/d4dneta9o2c0021/Covid-19.usdz">
                   </model-viewer>
-
-                    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
                       <div class="gradientMask"></div>
                       <!-- <div class="bg_noise"></div> -->
                   </article>
@@ -1942,7 +1911,7 @@
             <!-- /social -->
           </div>
         </div>
-        <footer class="footer" id="footer" role="contentinfo">
+        <footer class="footer" id="footer" role="contentinfo" style="background-color: rgb(24, 24, 24);">
           <div id="inner-footer" class="row align-justify">
             <div class="small-12 medium-3 large-3 columns footer-block">
               <ul id="menu-footer-en0" class="vertical menu footer-nav">
@@ -2650,19 +2619,21 @@
         !1
       );
     </script>
+    
     <script
       data-no-minify="1"
       async
-      src="https://www.vueloiv.com/wp-content/plugins/wp-rocket/assets/js/lazyload/17.5/lazyload.min.js"
+      src="assets/lazyload.js"
     ></script>
 
     <script
-      src="https://www.vueloiv.com/wp-content/cache/min/1/8ee573493aa4c9f216fdeafdb176a45f.js"
+      src="assets/script.js"
       data-minify="1"
       defer
     ></script>
 
     <script src="assets/main.js"></script>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r79/three.min.js"></script>
   </body>
 </html>
