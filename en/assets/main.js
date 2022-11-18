@@ -1,161 +1,176 @@
-/* smoke.js */
+// Create an array to store our particles
+var particles = [];
 
-class Smoke {
+// The amount of particles to render
+var particleCount = 60;
 
-  constructor(options) {
-    const defaults = {
-      width: window.innerWidth,
-      height: window.innerHeight };
+// The maximum velocity in each direction
+var maxVelocity = 3;
 
+// The target frames per second (how often do we want to update / redraw the scene)
+var targetFPS = 60;
 
-    Object.assign(this, options, defaults);
-    this.onResize = this.onResize.bind(this);
+// Set the dimensions of the canvas as variables so they can be used.
+var canvasWidth = 1000;
+var canvasHeight = 1000;
 
-    this.addEventListeners();
-    this.init();
-  }
+// Create an image object (only need one instance)
+var imageObj = new Image();
 
-  init() {
-    const { width, height } = this;
+// Once the image has been downloaded then set the image on all of the particles
+imageObj.onload = function() {
+    particles.forEach(function(particle) {
+            particle.setImage(imageObj);
+    });
+};
 
-    this.clock = new THREE.Clock();
+// Once the callback is arranged then set the source of the image
+imageObj.src = "http://www.blog.jonnycornwell.com/wp-content/uploads/2012/07/Smoke10.png";
 
-    const renderer = this.renderer = new THREE.WebGLRenderer();
+// A function to create a particle object.
+function Particle(context) {
 
-    renderer.setSize(width, height);
+    // Set the initial x and y positions
+    this.x = 0;
+    this.y = 0;
 
-    this.scene = new THREE.Scene();
+    // Set the initial velocity
+    this.xVelocity = 0;
+    this.yVelocity = 0;
 
-    const meshGeometry = new THREE.CubeGeometry(200, 200, 200);
-    const meshMaterial = new THREE.MeshLambertMaterial({
-      color: 0xaa6666,
-      wireframe: false });
+    // Set the radius
+    this.radius = 5;
 
-    this.mesh = new THREE.Mesh(meshGeometry, meshMaterial);
+    // Store the context which will be used to draw the particle
+    this.context = context;
 
-    this.cubeSineDriver = 0;
+    // The function to draw the particle on the canvas.
+    this.draw = function() {
+        
+       
+        // If an image is set draw it
+        if(this.image){
+            this.context.drawImage(this.image, this.x-128, this.y-128);         
+            // If the image is being rendered do not draw the circle so break out of the draw function                
+            return;
+        }
+        // Draw the circle as before, with the addition of using the position and the radius from this object.
+        this.context.beginPath();
+        this.context.arc(this.x, this.y, this.radius, 0, 2 * Math.PI, false);
+        this.context.fillStyle = "rgba(0, 255, 255, 1)";
+        this.context.fill();
+        this.context.closePath();
+    };
 
-    this.addCamera();
-    this.addLights();
-    this.addParticles();
-    this.addBackground();
+    // Update the particle.
+    this.update = function() {
+        // Update the position of the particle with the addition of the velocity.
+        this.x += this.xVelocity;
+        this.y += this.yVelocity;
 
-    document.body.appendChild(renderer.domElement);
-  }
+        // Check if has crossed the right edge
+        if (this.x >= canvasWidth) {
+            this.xVelocity = -this.xVelocity;
+            this.x = canvasWidth;
+        }
+        // Check if has crossed the left edge
+        else if (this.x <= 0) {
+            this.xVelocity = -this.xVelocity;
+            this.x = 0;
+        }
 
-  evolveSmoke(delta) {
-    const { smokeParticles } = this;
+        // Check if has crossed the bottom edge
+        if (this.y >= canvasHeight) {
+            this.yVelocity = -this.yVelocity;
+            this.y = canvasHeight;
+        }
+        
+        // Check if has crossed the top edge
+        else if (this.y <= 0) {
+            this.yVelocity = -this.yVelocity;
+            this.y = 0;
+        }
+    };
 
-    let smokeParticlesLength = smokeParticles.length;
+    // A function to set the position of the particle.
+    this.setPosition = function(x, y) {
+        this.x = x;
+        this.y = y;
+    };
 
-    while (smokeParticlesLength--) {
-      smokeParticles[smokeParticlesLength].rotation.z += delta * 0.2;
+    // Function to set the velocity.
+    this.setVelocity = function(x, y) {
+        this.xVelocity = x;
+        this.yVelocity = y;
+    };
+    
+    this.setImage = function(image){
+        this.image = image;
     }
-  }
+}
 
-  addLights() {
-    const { scene } = this;
-    const light = new THREE.DirectionalLight(0xffffff, 0.75);
+// A function to generate a random number between 2 values
+function generateRandom(min, max){
+    return Math.random() * (max - min) + min;
+}
 
-    light.position.set(-1, 0, 1);
-    scene.add(light);
-  }
+// The canvas context if it is defined.
+var context;
 
-  addCamera() {
-    const { scene } = this;
-    const camera = this.camera = new THREE.PerspectiveCamera(75, this.width / this.height, 1, 10000);
+// Initialise the scene and set the context if possible
+function init() {
+    var canvas = document.getElementById('background');
+    if (canvas.getContext) {
 
-    camera.position.z = 1000;
-    scene.add(camera);
-  }
+        // Set the context variable so it can be re-used
+        context = canvas.getContext('2d');
 
-  addParticles() {
-    const { scene } = this;
-    const textureLoader = new THREE.TextureLoader();
-    const smokeParticles = this.smokeParticles = [];
+        // Create the particles and set their initial positions and velocities
+        for(var i=0; i < particleCount; ++i){
+            var particle = new Particle(context);
+            
+            // Set the position to be inside the canvas bounds
+            particle.setPosition(generateRandom(0, canvasWidth), generateRandom(0, canvasHeight));
+            
+            // Set the initial velocity to be either random and either negative or positive
+            particle.setVelocity(generateRandom(-maxVelocity, maxVelocity), generateRandom(-maxVelocity, maxVelocity));
+            particles.push(particle);            
+        }
+    }
+    else {
+        alert("Please use a modern browser");
+    }
+}
 
-    textureLoader.load('https://rawgit.com/marcobiedermann/playground/master/three.js/smoke-particles/dist/assets/images/clouds.png', texture => {
-      const smokeMaterial = new THREE.MeshLambertMaterial({
-        color: 0xffffff,
-        map: texture,
-        transparent: true });
+// The function to draw the scene
+function draw() {
+    // Clear the drawing surface and fill it with a black background
+    context.fillStyle = "rgba(0, 0, 0, 0.5)";
+    context.fillRect(0, 0, 1000, 1000);
 
-      smokeMaterial.map.minFilter = THREE.LinearFilter;
-      const smokeGeometry = new THREE.PlaneBufferGeometry(300, 300);
-
-      const smokeMeshes = [];
-      let limit = 150;
-
-      while (limit--) {
-        smokeMeshes[limit] = new THREE.Mesh(smokeGeometry, smokeMaterial);
-        smokeMeshes[limit].position.set(Math.random() * 500 - 250, Math.random() * 500 - 250, Math.random() * 1000 - 100);
-        smokeMeshes[limit].rotation.z = Math.random() * 360;
-        smokeParticles.push(smokeMeshes[limit]);
-        scene.add(smokeMeshes[limit]);
-      }
+    // Go through all of the particles and draw them.
+    particles.forEach(function(particle) {
+        particle.draw();
     });
-  }
+}
 
-  addBackground() {
-    const { scene } = this;
-    const textureLoader = new THREE.TextureLoader();
-    const textGeometry = new THREE.PlaneBufferGeometry(600, 320);
-
-    textureLoader.load('https://rawgit.com/marcobiedermann/playground/master/three.js/smoke-particles/dist/assets/images/background.jpg', texture => {
-      const textMaterial = new THREE.MeshLambertMaterial({
-        blending: THREE.AdditiveBlending,
-        color: 0xffffff,
-        map: texture,
-        opacity: 1,
-        transparent: true });
-
-      textMaterial.map.minFilter = THREE.LinearFilter;
-      const text = new THREE.Mesh(textGeometry, textMaterial);
-
-      text.position.z = 800;
-      scene.add(text);
+// Update the scene
+function update() {
+    particles.forEach(function(particle) {
+        particle.update();
     });
-  }
+}
 
-  render() {
-    const { mesh } = this;
-    let { cubeSineDriver } = this;
+// Initialize the scene
+init();
 
-    cubeSineDriver += 0.01;
+// If the context is set then we can draw the scene (if not then the browser does not support canvas)
+if (context) {
+    setInterval(function() {
+        // Update the scene befoe drawing
+        update();
 
-    mesh.rotation.x += 0.005;
-    mesh.rotation.y += 0.01;
-    mesh.position.z = 100 + Math.sin(cubeSineDriver) * 500;
-
-    this.renderer.render(this.scene, this.camera);
-  }
-
-  update() {
-    this.evolveSmoke(this.clock.getDelta());
-    this.render();
-
-    requestAnimationFrame(this.update.bind(this));
-  }
-
-  onResize() {
-    const { camera } = this;
-
-    const windowWidth = window.innerWidth;
-    const windowHeight = window.innerHeight;
-
-    camera.aspect = windowWidth / windowHeight;
-    camera.updateProjectionMatrix();
-
-    this.renderer.setSize(windowWidth, windowHeight);
-  }
-
-  addEventListeners() {
-    window.addEventListener('resize', this.onResize);
-  }}
-
-
-
-/* app.js */
-const smoke = new Smoke();
-
-smoke.update();
+        // Draw the scene
+        draw();
+    }, 1000 / targetFPS);
+}
