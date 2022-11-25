@@ -1161,13 +1161,27 @@
           </div>
         </header>
         <!-- end .header -->
-
         <div id="content" class="home">
           <section class="home-section home-hero-wrapper" id="section1">
             <!-- HERO -->
-
             <div class="hero-section-container" id="home">
-              <header class="row align-middle hero-section center-content">
+              <model-viewer class="model-hero" src="/models/jabali_malecon2.glb" seamless-poster environment-image="neutral" shadow-intensity="1" autoplay ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate interaction-prompt-threshold="1500" camera-controls enable-pan></model-viewer>
+              <style>
+                .model-hero {
+                  width: 50%;
+                  height: 400px;
+                  margin: 0 auto;
+                  transform: translateY(50px);
+                  z-index: 50;
+                }
+
+                @media(max-width: 500px){
+                  .hero-section  {
+                    transform: translateY(-300px) !important;
+                  }
+                }
+              </style>
+              <header class="row align-middle hero-section center-content" style="transform: translateY(-170px);">
                 <div class="columns hero-section-text hide-on-init" style="text-align: center;">
                   <h2 class="HeroSplitText">
                     <span class="stroke">UNREAL ASSETS</span>
