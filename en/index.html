@@ -1028,92 +1028,80 @@
           <a href="#main" class="skip" data-smooth-scroll data-offset="90">
             Skip to main content
           </a>
-          <!-- By default, this menu will use off-canvas for small
-     and a topbar for medium-up -->
           <div class="top-bar row expanded align-middle" id="top-bar-menu">
             <div class="top-bar-left align-middle">
               <div class="site-logo">
-                <a
-                  href="https://www.vueloiv.com/en/"
-                  title="VueloIV.com"
-                  rel="home"
-                >
+                <a href="/" title="" rel="home" class="external">
+                  <img class="show-for-medium" src="/BOARLOGOLONG.png" alt="" />
+
                   <img
-                    class="show-for-medium"
-                    src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E"
-                    alt="VueloIV.com logo"
-                    data-lazy-src=""
+                    class="show-for-small-only"
+                    src="/BOARLOGOLONG.png"
+                    alt=""
                   />
- 
-                  <noscript
-                    ><img
-                      class="show-for-medium"
-                      src=""
-                      alt="VueloIV.com logo"
-                  /></noscript>
-                  <h1 style="font-size: 1.4rem; color: #fff">LOGO</h1><noscript
-                    ><img
-                      class="show-for-small-only"
-                      src=""
-                      alt="VueloIV.com logo"
-                  /></noscript>
-                </a>
+
+                  </a
+                >
               </div>
             </div>
 
             <div class="row align-middle">
-              <div class="inline main-nav-container hide-on-init">
+              <div
+                class="inline main-nav-container hide-on-init"
+                style="opacity: 1; visibility: inherit"
+              >
                 <ul
                   id="menu-menu-en"
-                  class="main-nav medium-horizontal menu"
+                  class="main-nav medium-horizontal menu accordion-menu"
                   data-responsive-menu="accordion medium-dropdown"
                   data-close-on-click-inside="false"
+                  role="menu"
+                  data-dropdown-menu="8kyyzb-dropdown-menu"
+                  data-mutate="ce1toc-responsive-menu"
+                  data-events="mutate"
+                  aria-multiselectable="true"
+                  data-accordion-menu="hh6ge5-accordion-menu"
                 >
                   <li
                     id="menu-item-3430"
                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3430"
+                    role="menuitem"
+                    style="transform: translate3d(0px, -100px, 0px); opacity: 0"
                   >
-                    <a href="#home">Home</a>
+                    <a href="index.html" class="inner-link">Home</a>
                   </li>
                   <li
                     id="menu-item-3417"
                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3417"
+                    role="menuitem"
+                    style="transform: translate3d(0px, -100px, 0px); opacity: 0"
                   >
-                    <a href="start-here.html"
-                      >Start Here</a
-                    >
+                    <a href="start-here.html" class="local">Start Here</a>
                   </li>
+
                   <li
-                    id="menu-item-8240"
-                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8240"
+                    id="menu-item-8241"
+                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8241"
+                    role="menuitem"
+                    style="transform: translate3d(0px, -100px, 0px); opacity: 0"
                   >
-                    <a href="https://sketchfab.com/metacaptain" target="_blank"
-                      >Portofolio</a
-                    >
+                    <a href="process.html" class="local" target="_blank">Process</a>
                   </li>
                   <li
                     id="menu-item-8241"
                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8241"
+                    role="menuitem"
+                    style="transform: translate3d(0px, -100px, 0px); opacity: 0"
                   >
-                    <a href="process.html"
-                      >Process</a
-                    >
-                  </li>
-                  <li
-                    id="menu-item-8241"
-                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8241"
-                  >
-                    <a href="#homeletstalk"
-                      >About</a
-                    >
+                    <a href="about.html" class="inner-link">About</a>
                   </li>
                   <li
                     id="menu-item-8497"
                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8497"
+                    role="menuitem"
+                    style="transform: translate3d(0px, -100px, 0px); opacity: 0"
                   >
-                    <a href="#contact"
-                      >Contact</a
-                    >
+                    <a href="contact.html" class="inner-link">Contact</a>
                   </li>
                 </ul>
               </div>
@@ -1131,7 +1119,7 @@
                     width="50"
                     height="50"
                     fill="transparent"
-                  />
+                  ></rect>
                   <g class="burger-svg__bars" fill="#fff">
                     <rect
                       class="burger-svg__bar burger-svg__bar-1"
@@ -1139,21 +1127,21 @@
                       y="18"
                       width="22"
                       height="2"
-                    />
+                    ></rect>
                     <rect
                       class="burger-svg__bar burger-svg__bar-2"
                       x="14"
                       y="24"
                       width="22"
                       height="2"
-                    />
+                    ></rect>
                     <rect
                       class="burger-svg__bar burger-svg__bar-3"
                       x="14"
                       y="30"
                       width="22"
                       height="2"
-                    />
+                    ></rect>
                   </g>
                 </svg>
               </button>
@@ -1174,12 +1162,19 @@
                   transform: translateY(50px);
                   z-index: 50;
                 }
-
+                
                 @media(max-width: 500px){
                   .hero-section  {
                     transform: translateY(-300px) !important;
                   }
                 }
+                
+                @media(min-width: 1500px){
+                  .hero-section  {
+                    transform: translateY(-250px) !important;
+                  }
+                }
+                
               </style>
               <header class="row align-middle hero-section center-content" style="transform: translateY(-170px);">
                 <div class="columns hero-section-text hide-on-init" style="text-align: center;">

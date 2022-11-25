@@ -12171,12 +12171,24 @@ blockquote, blockquote p {
     margin: 0;
     padding: 0;
     font-size: 1rem;
-    line-height: 1
+    line-height: 1;
 }
 
 .header .site-logo h1 img, .header .site-logo a img {
-    max-width: 90px;
-    max-height: 40px
+    max-width: 300px;
+    max-height: 400px;
+    margin-left: -70px;
+}
+
+@media (max-width: 620px){
+    .site-logo {
+        display: flex;
+        justify-content: center;
+    }
+
+    .header .site-logo h1, .header .site-logo a {
+        margin-left: 70px;
+    }
 }
 
 .header.fixed {
