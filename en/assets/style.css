@@ -12180,7 +12180,7 @@ blockquote, blockquote p {
     margin-left: -70px;
 }
 
-@media (max-width: 620px){
+@media (max-width: 620px) {
     .site-logo {
         display: flex;
         justify-content: center;
@@ -18187,4 +18187,56 @@ button.swiper-pagination-bullet {
 
 .swiper-container-coverflow .swiper-wrapper {
     -ms-perspective: 1200px
+}
+
+.model-hero {
+    width: 50%;
+    height: 400px;
+    margin: 0 auto;
+    z-index: 50;
+}
+
+.home-section {
+    margin-top: 150px;
+}
+
+@media (max-width: 500px) {
+    .model-hero {
+        transform: translateY(100px);
+    }
+}
+
+.btnHeroPortofolio {
+    background-color: #D9D9D9;
+    padding: 15px;
+    border-radius: 50px;
+    color: #000 !important;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.show-for-medium:first-child {
+    margin: 40px  0 0 -15px!important;
+}
+
+.link-active {
+    background-color: #fff;
+    padding: 10px;
+    min-width: 70px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.link-active a {
+    color: #000 !important;
+}
+
+.redes-icons {
+    position: fixed;
+    bottom: 5%;
+    left: 3%;
+}
+.redes-icons img {
+    margin-left: 10px;
 }
