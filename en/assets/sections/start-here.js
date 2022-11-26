@@ -15,3 +15,4 @@ btnNext.addEventListener("click",()=>{
 	sliders[contadorSliders].classList.add("start-container--slider-active")
 	contadorSliders += 1
 })
+
