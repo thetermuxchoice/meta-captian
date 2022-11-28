@@ -18216,19 +18216,14 @@ button.swiper-pagination-bullet {
 }
 
 .show-for-medium:first-child {
-    margin: 40px  0 0 -15px!important;
+    margin: 40px 0 0 -15px !important;
 }
 
 .link-active {
     background-color: #fff;
-    padding: 10px;
-    min-width: 70px;
+    padding: 8px 24px;
+    min-width: 100px;
     border-radius: 50px;
-    display: flex;
-    justify-content: center;
-}
-
-.link-active a {
     color: #000 !important;
 }
 
@@ -18237,6 +18232,136 @@ button.swiper-pagination-bullet {
     bottom: 5%;
     left: 3%;
 }
+
 .redes-icons img {
     margin-left: 10px;
+}
+
+@media (min-width: 1200px) {
+    .model-hero {
+        width: 70%;
+        height: 500px;
+        margin: 0 auto;
+        z-index: 50;
+    }
+}
+
+.nav {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 20px;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-top, .nav-bottom {
+    width: 90%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-top {
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+@media(max-width: 1100px) {
+    .nav-top {
+        justify-content: center;
+    }
+}
+
+.nav-bottom {
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.nav-top--links {
+    display: flex;
+}
+
+.nav-top--links a {
+    font: 1rem;
+    color: #fff;
+    text-transform: capitalize;
+    margin-right: 50px;
+}
+
+.links {
+    transition: 1s transform;
+}
+
+@media (max-width: 750px) {
+    .nav-top--links a {
+        margin-right: 20px;
+    }
+}
+
+@media (max-width: 580px) {
+    .nav-top {
+        justify-content: space-between;
+    }
+
+    #open-menu {
+        position: fixed;
+        top: 47px;
+        right: 5%;
+    }
+
+    .links {
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.822);
+        top: 0;
+        height: 100%;
+        right: 0;
+        width: 300px;
+        clip-path: inset(0 0 0 100%);
+        transition: 1s clip-path;
+    }
+
+    .links a:first-child {
+        margin-top: 150px
+    }
+
+    .links a {
+        margin: 10px 20px;
+    }
+
+    .nav-bottom {
+        gap: 50px;
+        right: 16%;
+        position: fixed;
+        bottom: 2%;
+        justify-content: end;
+        display: none;
+    }
+
+    #open-menu > img {
+        height: 40px;
+        width: 40px;
+    }
+    
+    .nav-top--logo img {
+        width: 200px !important;
+    }
+}
+
+.open-nav {
+    transform: translateY(-200px);
+}
+
+.open-mobile-nav {
+    clip-path: inset(0 0 0 0) !important;
+}
+
+.dp-flex {
+    display: flex !important;
 }

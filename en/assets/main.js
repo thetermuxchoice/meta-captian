@@ -174,3 +174,18 @@ if (context) {
         draw();
     }, 1000 / targetFPS);
 }
+
+
+const btnMenu = document.querySelector("#open-menu"),
+      nav = document.querySelector(".links")
+      navBot = document.querySelector(".nav-bottom")
+      navIcon = document.querySelector("#open-menu > img")
+
+btnMenu.addEventListener("click", ()=>{
+    if (window.innerWidth < 580) {
+        nav.classList.toggle("open-mobile-nav")
+        navBot.classList.toggle("dp-flex")
+        return
+    }
+    nav.classList.toggle("open-nav")
+})
