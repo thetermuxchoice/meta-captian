@@ -1,5 +1,6 @@
 const btnNext = document.querySelector("#next-slider")
 const sliders = document.querySelectorAll(".start-container--slider")
+const container = document.querySelector(".start-container ")
 
 let contadorSliders = 1
 
