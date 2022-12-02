@@ -100,78 +100,81 @@
     }
   }
 
-.controls-container {
-    width: 80%;
-    margin: 0 auto;
-    background-color: black;
-    padding: 10px;
-    border-radius: 10px;
-    display: flex;
-    justify-content: space-around;
+
+.content-slider {
+  margin: 100px auto;
+  display: flex;
+  justify-content: space-around;
+  padding: 0 50px;
+  max-width: 1600px;
 }
 
-.controls-container .btn-control {
-    color: #fff;
+.slider-left-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
 }
 
-.start-container {
-    width: 70%;
-    min-height: 3200px;
-    margin: 20px auto;
+.slider-left-controls button {
+  color: #fff;
+  font-weight: 500;
+  padding-bottom: 10px;
+  border-radius: 0;
 }
 
-.start-container {
-    display: none;
-    position: relative;
+.slider-left-controls button:hover {
+  border-bottom: 1px solid #fff;
+}
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
 }
 
-.start-container--active {
-    display: block;
+.mySlides {
+  display: none;
 }
 
-.controls-slider {
-    margin: 40px 0;
-    display: flex;
-    justify-content: center;
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
 }
 
-.controls-slider button {
-    padding: 10px;
-    border: 1px solid #fff;
-    color: #fff;
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
 }
 
-.start-container--slider {
-    position: absolute;
-    top: 0;
-    right: 0;
-    transition: 1s clip-path;
-    height: 100%;
-    width: 100%;
+.slider-controls  {
+  display: flex;
+  justify-content: flex-end;
+  gap: 50px;
 }
 
-.start-container--slider h1 {
-    font-size: 3rem;
-    text-align: center;
+.slider-controls a {
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 50px;
+  text-transform: capitalize;
+  color: #000 !important;
 }
 
-.start-container--slider p {
-    font-size: 1.2rem;
+.timer-section h1 {
+  text-align: center;
 }
 
-.start-container--slider:not(.start-container--slider:first-child) {
-    clip-path: inset(0 0 0 100%);
+.slider-controls a:hover {
+  background: #fffffd;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #42424200, #ffffff);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #00000013, #ffffff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-.start-container--slider-active {
-    clip-path: inset(0 0 0 0) !important;
+.slider-content:first-child h1 {
+  font-size: 7rem;
 }
 
-.clip-0 {
-    clip-path: inset(0 0 0 100%);
+.slider-content:first-child h2 {
+  font-size: 5rem;
 }
 
-.process-separator {
-    display: flex;
-    gap: 50px;
-}

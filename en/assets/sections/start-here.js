@@ -1,19 +1,27 @@
-const btnNext = document.querySelector("#next-slider")
-const sliders = document.querySelectorAll(".start-container--slider")
-const container = document.querySelector(".start-container ")
+let slideIndex = 1;
+showSlides(slideIndex);
 
-let contadorSliders = 1
 
-btnNext.addEventListener("click",()=>{
-	if (contadorSliders == 1) {
-		sliders[contadorSliders-1].classList.add("clip-0")
-	}
-	if (contadorSliders == 8) {
-		contadorSliders = 1
-		return
-	}
-	sliders[contadorSliders-1].classList.remove("start-container--slider-active")
-	sliders[contadorSliders].classList.add("start-container--slider-active")
-	contadorSliders += 1
-})
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
 
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
