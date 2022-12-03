@@ -18205,12 +18205,13 @@ button.swiper-pagination-bullet {
 }
 
 .btnHeroPortofolio {
-    background-color: #D9D9D9;
-    padding: 15px;
-    border-radius: 50px;
+    background-color: #fff;
     color: #000 !important;
-    display: inline-block;
-    margin-top: 20px;
+    font-size: 14px !important;
+}
+
+.btnHeroPortofolio:hover {
+    color: #fff !important;
 }
 
 .show-for-medium:first-child {
@@ -18383,7 +18384,6 @@ button.swiper-pagination-bullet {
 
 .footer-center {
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
 }
 
@@ -18396,9 +18396,10 @@ button.swiper-pagination-bullet {
 .footer-center--container-right {
     display: flex;
     width: 700px;
-    gap: 50px;
-    justify-content: center;
+    gap: 70px;
+    justify-content: flex-start;
     flex-wrap: wrap;
+    margin-left: 100px;
 }
 
 .footer-center--container {
@@ -18432,8 +18433,14 @@ button.swiper-pagination-bullet {
     margin: 0 auto;
     max-width: 1600px;
 }
+@media (max-width: 1350px){
+    .footer-center--container-right {
+        margin-left: 20px;
+        justify-content: center;
+    }
+}
 
-@media (max-width: 1200px){
+@media (max-width: 1220px){
     .footer-top  {
         text-align: center;
     }
@@ -18453,4 +18460,8 @@ button.swiper-pagination-bullet {
     .footer-bottom {
         text-align: center;
     }
+}
+
+.tiny {
+    display: none !important;
 }
