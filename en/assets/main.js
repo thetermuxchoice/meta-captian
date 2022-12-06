@@ -189,3 +189,7 @@ btnMenu.addEventListener("click", ()=>{
     }
     nav.classList.toggle("open-nav")
 })
+
+document.querySelector(".button-text").addEventListener("click", ()=>{
+    window.location.assign("https://sketchfab.com/metacaptain")
+})
