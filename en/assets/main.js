@@ -181,7 +181,7 @@ const btnMenu = document.querySelector("#open-menu"),
       navBot = document.querySelector(".nav-bottom")
       navIcon = document.querySelector("#open-menu > img")
 
-btnMenu.addEventListener("click", ()=>{
+btnMenu.addEventListener("click", (e)=>{
     if (window.innerWidth < 580) {
         nav.classList.toggle("open-mobile-nav")
         navBot.classList.toggle("dp-flex")

@@ -1972,7 +1972,11 @@ function __showCookieBanner() {
     divCookieAlert = document.createElement("div");
     divCookieAlert.id = __cookieLawBannerDivId;
     divCookieAlert.className = "cookieLawBox";
-    divCookieAlert.style.width = "96%";
+    divCookieAlert.style.width = "95%";
+    divCookieAlert.style.display = "flex";
+    divCookieAlert.style.justifyContent = "space-between";
+    divCookieAlert.style.alignItems = "center";
+    divCookieAlert.style.flexWrap = "wrap";
     divCookieAlert.style.boxSizing = "border-box";
     divCookieAlert.style.padding = "10px 10px 10px 10px";
     divCookieAlert.style.position = "fixed";
@@ -1984,15 +1988,15 @@ function __showCookieBanner() {
     divCookieAlert.style.left = "0px";
     divCookieAlert.style.right = "0px";
     divCookieAlert.innerHTML +=
-      '<div class="small-12 medium-10 large-10 columns">' +
+      '<div class="small-12 medium-10 large-10 columns" style="margint-top: 20px">' +
       __cookieLawTextWarning[__getCookieLawLang()] +
       " <button class=\"cookieLawAnchor button tiny clear white no-external-link\" onclick='javascript:__doCookieLawInfo()'>" +
       __cokieLawTextPolCookiesName[__getCookieLawLang()] +
       "</button></div>";
     divCookieAlert.innerHTML +=
-      '<div class="small-12 medium-2 large-2 columns"><button class="cookieLawButton  cookieLawButtonAccept button white expanded tiny no-external-link" style="margin:6px; float: right; " onclick=\'javascript:__doCookieLawAccept()\'>' +
+      '<div class="small-12 medium-2 large-2 columns" style="display: flex; margin-top: 20px; justify-content:center;align-items:center"><button class="cookieLawButton  cookieLawButtonAccept button white no-external-link" style="margin:6px; float: right; " onclick=\'javascript:__doCookieLawAccept()\'>' +
       __cokieLawTextAccept[__getCookieLawLang()] +
-      '</button><button class="cookieLawButton cookieLawButtonAccept button white expanded tiny hollow no-external-link" style="margin:6px; float: right; " onclick=\'javascript:__doCookieLawDeny()\'>' +
+      '</button><button class="cookieLawButton cookieLawButtonAccept button white hollow no-external-link" style="margin:6px; float: right; " onclick=\'javascript:__doCookieLawDeny()\'>' +
       __cokieLawTextReject[__getCookieLawLang()] +
       "</button></div>";
     document.body.appendChild(divCookieAlert);
