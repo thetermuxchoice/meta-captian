@@ -555,7 +555,7 @@
                 <div class="columns hero-section-text hide-on-init" style="text-align: center;">
                   <model-viewer class="model-hero" src="assets/models/freya posed.glb" seamless-poster environment-image="neutral" shadow-intensity="1" autoplay ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate interaction-prompt-threshold="1500" camera-controls enable-pan></model-viewer>
                   <h2 class="HeroSplitText">
-                    <span class="stroke">ABOUT US</span>
+                    <span class="stroke">start here</span>
                   </h2>
                   <div class="HerosubHeaderSplitText">
                     <p>
@@ -625,46 +625,17 @@
                             </div>
                             <div class="form_control">
                                 <p>Which service do you need?</p>
-                                <div class="radio_control">
-                                    <label for="r1">Company looking for branding around a  new custom persona/hero
-                                    </label>
-                                    <input type="radio" name="" id="r1">
+                                <div class="radio__buttons">
+                                  <label><input type="radio" class="radio-inline" name="radios" value=""><span class="outside"><span class="inside"></span></span>  Company looking for branding around a  new custom persona/hero</label>
+                                  <label><input type="radio"class="radio-inline" name="radios" value=""><span class="outside"><span class="inside"></span></span>Person looking to create a persona/hero of themselves</label>
+                                  <label><input type="radio" class="radio-inline" name="radios" value=""><span class="outside"><span class="inside"></span></span>Create a Custom Character</label>
+                                  <label><input type="radio" class="radio-inline" name="radios" value=""><span class="outside"><span class="inside"></span></span>Create a Custom Item</label>
+                                  <label><input type="radio" class="radio-inline" name="radios" value=""><span class="outside"><span class="inside"></span></span>I need some Concept Art</label>
+                                  <label><input type="radio" class="radio-inline" name="radios" value=""><span class="outside"><span class="inside"></span></span>My existing character needs a Custom Rig</label>
+                                  <label><input type="radio" class="radio-inline" name="radios" value=""><span class="outside"><span class="inside"></span></span>Cinematic/Teasers/Trailers in UE5 for my brand</label>
+                                  <label><input type="radio" class="radio-inline" name="radios" value=""><span class="outside"><span class="inside"></span></span>Existing asset repairs or corrections</label>
                                 </div>
-                                <div class="radio_control">
-                                    <label for="r2">Person looking to create a persona/hero of themselves
-                                    </label>
-                                    <input type="radio" name="" id="r1">
-                                </div>
-                                <div class="radio_control">
-                                    <label for="r3">Create a Custom Character
-                                    </label>
-                                    <input type="radio" name="" id="r1">
-                                </div>
-                                <div class="radio_control">
-                                    <label for="r4">Create a Custom Item
-                                    </label>
-                                    <input type="radio" name="" id="r1">
-                                </div>
-                                <div class="radio_control">
-                                    <label for="r5">I need some Concept Art
-                                    </label>
-                                    <input type="radio" name="" id="r1">
-                                </div>
-                                <div class="radio_control">
-                                    <label for="r5">My existing character needs a Custom Rig
-                                    </label>
-                                    <input type="radio" name="" id="r1">
-                                </div>
-                                <div class="radio_control">
-                                    <label for="r5">Cinematic/Teasers/Trailers in UE5 for my brand
-                                    </label>
-                                    <input type="radio" name="" id="r1">
-                                </div>
-                                <div class="radio_control">
-                                    <label for="r5">Existing asset repairs or corrections
-                                    </label>
-                                    <input type="radio" name="" id="r1">
-                                </div>
+                                
                             </div>
                             <div class="form_control">
                                 <label for="assets">How many assets do you need?
@@ -688,20 +659,134 @@
                             </div>
                             <div class="form_control">
                                 <p>NDA? (We follow industry standard IP practices either way, but can sign an NDA if needed).</p>
-                                <div class="radio_control">
-                                    <label for="yes">Yes
-                                    </label>
-                                    <input type="radio" name="" id="yes">
-                                </div>
-                                <div class="radio_control">
-                                    <label for="no">No
-                                    </label>
-                                    <input type="radio" name="" id="no">
-                                </div>
-                            </div>
+                                  <div class="form__group">
+                                    <div class="form__radio-group">
+                                      <input type="radio" class="form__radio-input" id="small" name="size">
+                                      <label for="small" class="form__radio-label">
+                                        <span class="form__radio-botton"></span>
+                                        Yes
+                                      </label>
+                                    </div>
+                                    <div class="form__radio-group">
+                                      <input type="radio" class="form__radio-input" id="large" name="size">
+                                      <label for="large" class="form__radio-label">
+                                        <span class="form__radio-botton"></span>
+                                        No
+                                      </label>  
+                                    </div>
+                                  </div>
+
                         </div>
                     </div>
                     <style>
+                      .radio__buttons {
+                        display: flex;
+                        flex-direction: column;
+                      }
+                      .radio__buttons label {
+
+  display: inline-block;
+  position: relative;
+  padding-left: 40px;
+  margin-top: -30px !important;
+}
+
+.radio__buttons input {
+  height: 1px;
+  width: 1px;
+  opacity: 0;
+}
+
+.outside {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 74%;
+  margin-top: -10px;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgb(0, 183, 255);
+  border-radius: 50%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: none;
+}
+
+.inside {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: inline-block;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  background: rgb(0, 183, 255);
+  left: 3px;
+  top: 3px;
+  -webkit-transform: scale(0, 0);
+          transform: scale(0, 0);
+}
+.no-transforms .inside {
+  left: auto;
+  top: auto;
+  width: 0;
+  height: 0;
+}
+
+input:checked + .outside .inside {
+  -webkit-animation: radio-select 0.1s linear;
+          animation: radio-select 0.1s linear;
+  -webkit-transform: scale(1, 1);
+          transform: scale(1, 1);
+}
+.no-transforms input:checked + .outside .inside {
+  width: 10px;
+  height: 10px;
+}
+
+                        
+.form__radio-group {
+  width: 20%;
+  display: inline-block;
+}
+.form__radio-input {
+  display: none;
+}
+.form__radio-label {
+  font-size: 16px;
+  cursor: pointer;
+  position: relative;
+  padding-left: 50px;
+}
+.form__radio-botton {
+  height: 30px;
+  width: 30px;
+  border: 3px solid rgb(0, 183, 255);
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  left: 0;
+
+}
+.form__radio-botton::after {
+  content: "";
+  display: block;
+  height: 1.3rem;
+  width: 1.3rem;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(0, 183, 255);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.form__radio-input:checked ~ .form__radio-label .form__radio-botton::after {
+  opacity: 1;
+}
                         .form_container {
                             width: 100%;
                             margin: auto;
