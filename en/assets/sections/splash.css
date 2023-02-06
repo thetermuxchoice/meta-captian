@@ -1,0 +1,17 @@
+.ov-hidden {
+  overflow: hidden;
+}
+
+.splash-screen {
+  background-color: rgb(17, 17, 17);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 200;
+  clip-path: circle(70.7% at 50% 50%);
+  transition: 1s clip-path;
+}
+
+.close-splash {
+  clip-path: circle(0);
+}

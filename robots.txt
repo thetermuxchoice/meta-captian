@@ -1,0 +1,5 @@
+User-Agent: *
+
+
+Disallow: /v/
+Sitemap: https://www.vueloiv.com/sitemap_index.xml
